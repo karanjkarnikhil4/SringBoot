@@ -3,6 +3,7 @@
 <title>Yahoo!</title>
 </head>
 <body>
+<font color="red" >${errorMessage}</font>
 <form method="post">
 Name:<input type="text" name="name"/>
 <br/>
