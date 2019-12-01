@@ -3,7 +3,7 @@
 <title>Yahoo!</title>
 </head>
 <body>
-JSP Page !!!
+JSP Page !!! ${name}
 
 </body>
 </html>
