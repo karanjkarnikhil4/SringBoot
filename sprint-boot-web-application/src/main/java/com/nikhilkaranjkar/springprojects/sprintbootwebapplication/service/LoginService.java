@@ -1,4 +1,4 @@
-package com.nikhilkaranjkar.springprojects.sprintbootwebapplication.controller;
+package com.nikhilkaranjkar.springprojects.sprintbootwebapplication.service;
 
 import org.springframework.stereotype.Component;
 
