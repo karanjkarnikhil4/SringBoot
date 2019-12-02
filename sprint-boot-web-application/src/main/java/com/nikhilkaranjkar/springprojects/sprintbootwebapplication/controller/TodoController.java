@@ -1,5 +1,7 @@
 package com.nikhilkaranjkar.springprojects.sprintbootwebapplication.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,6 +28,21 @@ public class TodoController {
 		String name = (String) model.get("name");
 		model.put("todoList", todoService.retrieveTodos(name));
 		return "Todo";
+	}
+	
+	
+	@RequestMapping(value ="/addTodo",method = RequestMethod.GET)
+	public String addTodos(ModelMap model)
+	{
+		return "addTodo";
+	}
+	
+	
+	@RequestMapping(value ="/addTodo",method = RequestMethod.POST)
+	public String addNewTodo(ModelMap model,@RequestParam String description)
+	{
+		todoService.addTodo(model.get("name").toString(), description, new Date(), false);
+		return "redirect:/list-todos";
 	}
 	
 	
