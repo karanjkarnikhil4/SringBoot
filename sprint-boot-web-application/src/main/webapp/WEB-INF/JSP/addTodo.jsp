@@ -1,14 +1,30 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <html>
 <head>
 <title>Web application</title>
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+	    		rel="stylesheet">
 </head>
 <body>
-<form method="post">
+<div class = "container">
+<form:form method="post" modelAttribute="todo">
+			<fieldset class="form-group">
+				<form:label path="desc">Description</form:label> 
+				<form:hidden path="id"/>
+				<form:hidden path="user"/>
+				
+				<form:hidden path="isDone"/>
+				<form:input path="desc" type="text"
+					class="form-control" required="required"/>
+				<form:errors path="desc" cssClass="text-warning"/>
+			</fieldset>
 
-Description: <input type="text" name="description"/>
-<button type="submit">Submit</button>
+			<button type="submit" class="btn btn-success">Add</button>
+		</form:form>
 
-</form>
-
+<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</div>
 </body>
 </html>
