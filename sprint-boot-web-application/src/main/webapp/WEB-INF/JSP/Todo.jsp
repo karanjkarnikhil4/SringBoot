@@ -1,12 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<html>
-<head>
-<title>Web application</title>
-<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
-	    		rel="stylesheet">
-</head>
-<body>
+<%@ include file="common/header.jspf" %>
+<%@ include file="common/navigation.jspf" %>
 <div class = "container">
 <h1>Your Todos</h1>
 <br/>
@@ -23,6 +16,7 @@
 </tr>
 </thead>
 <tbody>
+
 <c:forEach items="${todoList}" var="todo">
 <tr>
 <td>${todo.desc}</td>
@@ -35,11 +29,13 @@
 </c:forEach>
 </tbody>
 </table>
-<div> <a class="button" href="/addTodo">Add a Todo</a></div>
-<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <a class="button" href="/addTodo">Add a Todo</a></div>
 
-
-</div>
-</body>
-</html>
+<div>
+<%@ include file="common/footer.jspf" %>
+ <script>
+$(document).ready(function(){
+	   $(".active").removeClass("active");
+	   $("#todoNav").addClass("active");
+	});
+</script>

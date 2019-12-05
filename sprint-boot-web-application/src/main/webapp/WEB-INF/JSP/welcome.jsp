@@ -1,10 +1,7 @@
-<html>
-<head>
-<title>Web application</title>
-</head>
-<body>
+<%@ include file="common/header.jspf" %>
+<%@ include file="common/navigation.jspf" %>
+<div class="container">
 
 Welcome ${name } !! <a href = "/list-todos">Click here to list the todo's </a>
-
-</body>
-</html>
+</div>
+<%@ include file="common/footer.jspf" %>

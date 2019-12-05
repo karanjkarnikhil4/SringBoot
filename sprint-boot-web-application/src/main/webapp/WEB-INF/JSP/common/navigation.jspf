@@ -1,0 +1,12 @@
+<nav role="navigation" class="navbar navbar-default">
+	<div class="">
+		<a href="http://www.google.co.in" class="navbar-brand">Google search</a>
+	</div>
+	<div class="navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li id="addTodoNav" class="active"><a href="/">Home</a></li>
+			<li id="todoNav"><a href="/list-todos">Todos</a></li>
+
+		</ul>
+	</div>
+</nav>
