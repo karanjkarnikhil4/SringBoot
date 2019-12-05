@@ -12,7 +12,7 @@ import com.nikhilkaranjkar.springprojects.sprintbootwebapplication.service.Login
 // login --> Hello World
 @Controller
 @SessionAttributes(names = "name")
-public class LoginController {
+public class WelcomeController {
 
   @Autowired
   private LoginService loginService;
