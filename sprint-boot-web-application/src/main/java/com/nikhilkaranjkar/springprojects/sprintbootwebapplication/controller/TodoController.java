@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -52,7 +54,12 @@ public class TodoController {
 
 
   private String getUserName(ModelMap model) {
-    return (String) model.get("name");
+    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    
+    if(principal instanceof UserDetails)
+      return ((UserDetails)principal).getUsername();
+    
+    return principal.toString();
   }
 
   @RequestMapping(value = "/updateTodo", method = RequestMethod.GET)
@@ -78,6 +85,11 @@ public class TodoController {
 
   @RequestMapping(value = "/deleteTodo", method = RequestMethod.GET)
   public String deleteTodo(@RequestParam int id) {
+    
+    if(id ==1)
+    {
+      throw new RuntimeException("Something went wrong");
+    }
     todoService.deleteTodo(id);
     return "redirect:/list-todos";
   }
