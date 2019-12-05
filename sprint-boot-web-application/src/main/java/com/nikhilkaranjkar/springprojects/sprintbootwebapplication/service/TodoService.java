@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.nikhilkaranjkar.springprojects.sprintbootwebapplication.model.Todo;;
@@ -32,10 +32,24 @@ public class TodoService {
         return filteredTodos;
     }
 
+    
+    
+    
+    
     public void addTodo(String name, String desc, Date targetDate,
             boolean isDone) {
         todos.add(new Todo(++todoCount, name, desc, targetDate, isDone));
     }
+    
+    public void updateTodo(Todo todo)
+    {
+     todos.remove(todo);
+     todos.add(todo);
+    }
+    
+    public Optional<Todo> getTodo(int id) {
+    return todos.stream().filter(todo->todo.getId()==id).findFirst();
+}
 
     public void deleteTodo(int id) {
         Iterator<Todo> iterator = todos.iterator();
